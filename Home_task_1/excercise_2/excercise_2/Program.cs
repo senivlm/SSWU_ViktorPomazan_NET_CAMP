@@ -66,7 +66,9 @@ class Program
     }
     static void Main()
     {
-        int[,] matrix = new int[8, 8];
+        int n = int.Parse(Console.ReadLine());
+        int m = int.Parse(Console.ReadLine());
+        int[,] matrix = new int[n, m];
 
         FillMatrix(matrix);
         CalculateColorData(matrix);

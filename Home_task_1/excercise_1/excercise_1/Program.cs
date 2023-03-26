@@ -6,9 +6,8 @@ int[,] matrix = new int[n, m];
 int value = 1; 
 int row = 0; 
 int col = 0;
-int direction = 3;
+int direction = 0;
 
-// заповнення матриці
 for (int i = 0; i < n * m; i++)
 {
     matrix[row, col] = value; 
