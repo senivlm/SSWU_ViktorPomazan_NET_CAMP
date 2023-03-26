@@ -1,26 +1,25 @@
-﻿int n = int.Parse(Console.ReadLine()); // кількість рядків
-int m = int.Parse(Console.ReadLine()); // кількість стовпців
+﻿int n = int.Parse(Console.ReadLine()); 
+int m = int.Parse(Console.ReadLine()); 
 
-int[,] matrix = new int[n, m]; // ініціалізація матриці
+int[,] matrix = new int[n, m]; 
 
-int value = 1; // початкове значення
-int row = 0; // поточний рядок
-int col = 0; // поточний стовпець
+int value = 1; 
+int row = 0; 
+int col = 0;
 int direction = 3;
 
 // заповнення матриці
 for (int i = 0; i < n * m; i++)
 {
-    matrix[row, col] = value; // присвоєння значення елементу матриці
-    value++; // збільшення значення для наступного елементу
+    matrix[row, col] = value; 
+    value++; 
 
-    // визначення наступного рядка і стовпця залежно від напряму руху
     switch (direction)
     {
-        case 0: // вниз
+        case 0:
             if (row == n - 1 || matrix[row + 1, col] != 0)
             {
-                direction = 1; // зміна напряму руху на вправо
+                direction = 1;
                 col++;
             }
             else
@@ -28,10 +27,10 @@ for (int i = 0; i < n * m; i++)
                 row++;
             }
             break;
-        case 1: // вправо
+        case 1:
             if (col == m - 1 || matrix[row, col + 1] != 0)
             {
-                direction = 2; // зміна напряму руху на вверх
+                direction = 2;
                 row--;
             }
             else
@@ -39,10 +38,10 @@ for (int i = 0; i < n * m; i++)
                 col++;
             }
             break;
-        case 2: // вверх
+        case 2:
             if (row == 0 || matrix[row - 1, col] != 0)
             {
-                direction = 3; // зміна напряму руху на вліво
+                direction = 3; 
                 col--;
             }
             else
@@ -50,10 +49,10 @@ for (int i = 0; i < n * m; i++)
                 row--;
             }
             break;
-        case 3: // вліво
+        case 3: 
             if (col == 0 || matrix[row, col - 1] != 0)
             {
-                direction = 0; // зміна напряму руху на вниз
+                direction = 0;
                 row++;
             }
             else
@@ -64,7 +63,7 @@ for (int i = 0; i < n * m; i++)
     }
 }
 
-// виведення матриці
+
 for (int i = 0; i < n; i++)
 {
     for (int j = 0; j < m; j++)
