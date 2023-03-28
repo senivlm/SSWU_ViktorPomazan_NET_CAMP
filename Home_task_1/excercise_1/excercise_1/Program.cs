@@ -1,4 +1,5 @@
-﻿int n = int.Parse(Console.ReadLine()); 
+//Вітаю. Перше завдання по створенню репозиторію Ви виконали.
+int n = int.Parse(Console.ReadLine()); 
 int m = int.Parse(Console.ReadLine()); 
 
 int[,] matrix = new int[n, m]; 
