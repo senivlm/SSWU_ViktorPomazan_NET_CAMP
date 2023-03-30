@@ -1,4 +1,5 @@
-﻿int n = int.Parse(Console.ReadLine()); 
+// Main має бути лаконічним. Думаєм об'єктно-зорієнтовано!
+int n = int.Parse(Console.ReadLine()); 
 int m = int.Parse(Console.ReadLine()); 
 
 int[,] matrix = new int[n, m]; 
@@ -12,7 +13,7 @@ for (int i = 0; i < n * m; i++)
 {
     matrix[row, col] = value; 
     value++; 
-
+// Не оптимально по кількості перевірки умов
     switch (direction)
     {
         case 0:
