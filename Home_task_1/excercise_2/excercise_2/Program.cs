@@ -1,7 +1,7 @@
 ﻿using System;
 
 class Program
-{
+{// думаємо об'єктно-зорієнтовано. Розкладаємо на методи! Заповнення матриці не мало б мати роздрук!
     public static void FillMatrix(int[,] matrix)
     {
         Random random = new Random();
@@ -59,7 +59,7 @@ class Program
                 endCol = matrix.GetLength(1) - 1;
             }
         }
-
+// Результат мав би бути переданий як параметри методу!
         Console.WriteLine($"The longest line has length {maxLength} and color is {matrix[startRow, startCol]} colors");
         Console.WriteLine($"Start of line: [{startRow}, {startCol}]");
         Console.WriteLine($"End of line: [{endRow}, {endCol}]");
