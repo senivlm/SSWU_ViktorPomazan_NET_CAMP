@@ -16,7 +16,7 @@ namespace exercice_1
         {
             if (сapacity < 0)
             {
-                Console.WriteLine("Сф should be positive");
+                Console.WriteLine("Capacity should be positive");
             }
             _сapacity = сapacity;
             _pump = pump;
