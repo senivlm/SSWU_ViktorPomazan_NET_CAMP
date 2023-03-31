@@ -19,7 +19,7 @@ namespace exercice_1
             _pump = pump;
         }
         public abstract void CheckWaterState();
-        public override string? ToString()
+        public override string ToString()
         {
             return $"The simulator work with users - {_users}, water tower - {_waterTower}, pump: {_pump}";
 

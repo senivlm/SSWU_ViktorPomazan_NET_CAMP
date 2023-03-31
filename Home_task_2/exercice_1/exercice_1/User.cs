@@ -30,7 +30,7 @@ namespace exercice_1
 
         public abstract void UseWater(WaterTower waterTower);
 
-        public override string? ToString()
+        public override string ToString()
         {
             return $"User consumption is {_consumption}, using water is {_using}";
         }

@@ -24,7 +24,7 @@ namespace exercice_1
 
         public abstract void GiveWater(int consumption);
 
-        public override string? ToString()
+        public override string ToString()
         {
             return $"Current level of water is {_currentLevel}, pump in tower is {_pump}";
         }
