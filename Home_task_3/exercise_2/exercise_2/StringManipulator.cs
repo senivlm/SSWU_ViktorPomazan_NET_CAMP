@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace exercise_2
 {
     internal class StringManipulator
-    {
+    {//Молодець!
         public static int? FindSecondSubstringIndex(string text, string substring)
         {
             int firstIndex = text.IndexOf(substring);
@@ -38,7 +38,7 @@ namespace exercise_2
         }
 
         public static string ReplaceWordsWithDoubleLetters(string text, string replacement)
-        {
+        {// Прочитаємо разом регулярний вираз...
             Regex regex = new Regex(@"\b\w*(\w)\1\w*\b");
             return regex.Replace(text, replacement);
         }
