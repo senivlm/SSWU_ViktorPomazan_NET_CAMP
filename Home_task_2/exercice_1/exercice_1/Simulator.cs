@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace exercice_1
-{
+{//краще щоб симулятор сам створював башти, а користувачів мав змогу додавати та вилучати. Або ж робити генератор цих об'єктів за певною стратегією.
     internal abstract class Simulator
     {
         private readonly WaterTower _waterTower;
