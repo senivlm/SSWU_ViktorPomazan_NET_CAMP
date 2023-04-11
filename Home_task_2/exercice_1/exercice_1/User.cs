@@ -27,7 +27,7 @@ namespace exercice_1
                 Console.WriteLine("Consumption can`t be less than 0");
             _consumption = consumption;
         }
-
+// Тоді у симуляторі треба робити стійкі пари башта та користувач, адже це так просто не міняється...
         public abstract void UseWater(WaterTower waterTower);
 
         public override string ToString()
