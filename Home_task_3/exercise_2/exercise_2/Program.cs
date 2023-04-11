@@ -3,7 +3,7 @@
 namespace exercise_2
 {
     class Program
-    {
+    {// 1 задача. Неправильна стрілка між вежею і помпою. І ромбики біля симулятора мають бути зафарбовані.
         static void Main()
         {
             Console.Write("Enter the text: ");
