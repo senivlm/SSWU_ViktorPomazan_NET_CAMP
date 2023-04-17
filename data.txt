@@ -1,0 +1,11 @@
+10 2
+23; Holovna St, 123; Ivanenko; 100; 200; 23.06.23
+45; Vysoka St, 456; Sidorenko; 75; 600; 05.07.23
+12; V'iazova St, 789; Kovalenko; 200; 400; 03.06.23
+67; Dubova St, 123; Lysenko; 50; 150; 15.08.23
+89; Klenova St, 456; Boyko; 120; 300; 21.09.23
+34; Sosnova St, 789; Petrenko; 80; 220; 18.07.23
+56; Kedrova St, 123; Kravchenko; 70; 190; 03.08.23
+78; Yalynova St, 456; Vasylenko; 130; 300; 02.06.23
+90; Berezova St, 789; Melnyk; 150; 200; 11.06.23
+21; Yasna St, 000; Hryshchenko; 50; 150; 08.08.23
