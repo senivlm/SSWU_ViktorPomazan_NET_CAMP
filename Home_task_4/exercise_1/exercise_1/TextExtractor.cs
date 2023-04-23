@@ -3,7 +3,7 @@ using System;
 using System.Text;
 
 namespace FindTextInBrackets
-{
+{// Текст мав бути колекцією стрічок, яку не можна зливати в одну, за умовою задачі. Це алгоритмічно складніша задача.
     class TextManipulator
     {
         private string _text;
