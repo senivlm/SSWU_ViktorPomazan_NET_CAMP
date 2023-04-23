@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace exercise_1
-{
+{//Алгоритм реалізовано добре. 
     internal class Garden : IEquatable<Garden>
     {
         private Tree[] _trees;
         private double _enclosureLength;
-
+// порушення інкапсуляції
         public Tree[] Trees { get { return _trees; } set { _trees = value; } }
         public double EnclosureLength { get { return _enclosureLength; } set { _enclosureLength = value; } }
 
