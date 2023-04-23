@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// У такому підході немає узагальнення. Ви пишете подібний код кілька разів - отже, існує узагальнення! 
 namespace exercise_3
 {
     internal class Cube
-    {
+    {// тут тип int дуже надлишковий
         int[,,] _cube;
         int _size;
         public Cube()
@@ -47,6 +47,7 @@ namespace exercise_3
                 }
             }
         }
+        // насправді Ви змінюєте 3 координату. Тому назва є некоректною.
         public void FindEmptySpaceInAxisX()
         {
             for (int i = 0; i < _cube.GetLength(0); i++)
@@ -62,7 +63,7 @@ namespace exercise_3
                             holeAlongX = false;
                             break;
                         }
-                    }
+                    }//тут не потрібний роздрук. Це ж модельний клас.
                     if (holeAlongX)
                     {
                         Console.WriteLine("Empty space in X was found");
