@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace exercise_2
-{
+{// Не враховані всі умови.
     internal static class EmailLexemChecker
     {
         public static bool CheckLexem(string beforeAddressSign, string afterAddressSign)
@@ -21,6 +21,7 @@ namespace exercise_2
             for (int i = 0; i < beforeAddressSign.Length; i++)
             {
                 char c = beforeAddressSign[i];
+                // можна було сформувати множину і скористаись операціями над множиною.
                 if (!char.IsLetterOrDigit(c) && c != '!' && c != '#' && c != '$' && c != '%' && c != '&'
                     && c != '\'' && c != '*' && c != '+' && c != '-' && c != '/' && c != '=' && c != '?' && c != '^'
                     && c != '_' && c != '`' && c != '{' && c != '|' && c != '}' && c != '~' && c != '.')
