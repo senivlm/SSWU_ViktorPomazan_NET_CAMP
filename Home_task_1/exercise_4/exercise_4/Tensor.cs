@@ -21,7 +21,7 @@ namespace Exercise4
             _shape = shape;
             _data = new T[CalculateTensorSize(shape)];
         }
-
+// Порушення інкапсуляції
         public int[] Dimensions => _shape;
 
         public T GetValue(params int[] indices)
@@ -34,6 +34,7 @@ namespace Exercise4
             int offset = CalculateIndex(indices);
             return _data[offset];
         }
+        // наявність таких методів вже показує скінченність підходу....
         public void Print3DTensor(Tensor<int> tensor3d, int n)
         {
             for (int i = 0; i < n; i++)
