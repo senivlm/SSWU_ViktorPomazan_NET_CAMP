@@ -1,7 +1,12 @@
-﻿using exercise_1;
+﻿using System.Text;
 
-SpiralMatrix matrix = new SpiralMatrix(4);
-foreach (int num in matrix)
+namespace exercise_1
 {
-    Console.Write(num + " ");
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Printer.Print();
+        }
+    }
 }

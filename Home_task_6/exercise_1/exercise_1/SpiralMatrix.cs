@@ -10,56 +10,83 @@ namespace exercise_1
 {
     internal class SpiralMatrix: IEnumerable
     {
-        private int[,] _matrix;
-
-        public SpiralMatrix(int x)
+        private readonly int[,] matrix;
+        public SpiralMatrix(int[,] matrix)
         {
-            _matrix = new int[x, x];
-            int number = 0;
-            for(int i = 0; i < x; i++)
-            {
-                for(int j = 0; j < x; j++)
-                {
-                    _matrix[i, j] = number++;
-                }
-            }
+            this.matrix = matrix;
         }
 
         public IEnumerator GetEnumerator()
         {
-            Point min = new Point(0, 0);
-            Point max = new Point(_matrix.GetLength(0) - 1, _matrix.GetLength(1) - 1);
-            while(min != max)
+            int currentRow = 0;
+            int currentCol = 0;
+            int maxRow = matrix.GetLength(0) - 1;
+            int maxCol = matrix.GetLength(1) - 1;
+            bool isGoingDown = true;
+
+            int step = 0;
+            while (step < matrix.Length)
             {
-                int freeParam;
-                if(min.X > min.Y)
+                yield return matrix[currentRow, currentCol];
+
+                switch (isGoingDown)
                 {
-                    freeParam = min.Y;
-                    for(int i = min.X; i >= min.Y; i--)
-                    {
-                        yield return _matrix[i, freeParam++];
-                    }
-                    if(min.X < _matrix.GetLength(0) - 1)
-                        min = new Point(0, min.X + 1);
-                    else
-                        min = new Point(min.Y + 1, min.X);
+                    case true 
+                    when currentRow == maxRow:
+                        currentCol++;
+                        isGoingDown = false;
+                        break;
+                    case true when currentCol == 0:
+                        currentRow++;
+                        isGoingDown = false;
+                        break;
+                    case true:
+                        currentRow++;
+                        currentCol--;
+                        break;
+                    case false when currentCol == maxCol:
+                        currentRow++;
+                        isGoingDown = true;
+                        break;
+                    case false when currentRow == 0:
+                        currentCol++;
+                        isGoingDown = true;
+                        break;
+                    case false:
+                        currentRow--;
+                        currentCol++;
+                        break;
                 }
-                else
-                {
-                    freeParam = min.X;
-                    for(int i = min.Y; i >= min.X; i--)
-                    {
-                        yield return _matrix[freeParam++, i];
-                    }
-                    if (min.Y < _matrix.GetLength(1) - 1)
-                        min = new Point(min.Y + 1, 0);
-                    else
-                    {
-                        min = new Point(min.Y, min.X + 1);
-                    }
-                }
+
+                step++;
             }
-            yield return _matrix[max.X, max.Y];
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Original matrix:").AppendLine();
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    sb.Append(matrix[i, j]).Append(" ");
+                }
+                sb.AppendLine();
+            }
+            sb.Append("Spiral order:").AppendLine();
+            foreach (int element in this)
+            {
+                sb.Append(element).Append(", ");
+            }
+            if (sb.Length >= 2)
+            {
+                sb.Remove(sb.Length - 2, 2);
+            }
+            return sb.ToString();
         }
     }
 }
