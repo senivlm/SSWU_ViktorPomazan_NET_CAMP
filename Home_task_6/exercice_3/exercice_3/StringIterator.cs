@@ -22,7 +22,7 @@ namespace exercice_3
             get { return new List<string>(_uniqueWords); }
         }
         public IEnumerable<string> GetUniqueWords()
-        {
+        {Тут -молодець. З урахуванням yield. Більшість тут помилилась(
             HashSet<string> uniqueWords = new HashSet<string>();
             string[] words = _text.Split(new[] { ' ', ',', '.', ';', ':' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -33,6 +33,7 @@ namespace exercice_3
                     yield return word;
                 }
             }
+            // Це лишнє.
             _uniqueWords = uniqueWords;
         }
     }
