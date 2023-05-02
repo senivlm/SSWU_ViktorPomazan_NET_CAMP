@@ -6,7 +6,7 @@ namespace exercise_2
     {
         private int[][] _arrays;
         public ArraySorter(int[][] arrays)
-        {
+        {// можна Array.Copy також
             _arrays = (int[][])arrays.Clone();
         }
         public IEnumerable<int> SortArrays()
@@ -22,6 +22,7 @@ namespace exercise_2
                 yield return item;
             }
         }
+        // про ефективність цього  - на занятті.
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
