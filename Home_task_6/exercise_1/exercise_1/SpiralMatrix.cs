@@ -28,7 +28,7 @@ namespace exercise_1
             while (step < matrix.Length)
             {
                 yield return matrix[currentRow, currentCol];
-
+                // прошу запустити і показати на занятті.
                 switch (isGoingDown)
                 {
                     case true 
@@ -77,6 +77,7 @@ namespace exercise_1
                 }
                 sb.AppendLine();
             }
+            // Розумію, що це зробили для демонстрації завдання. Але це краще демонструвати на стороні клієнтського класу. 
             sb.Append("Spiral order:").AppendLine();
             foreach (int element in this)
             {
