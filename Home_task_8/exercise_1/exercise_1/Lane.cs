@@ -22,9 +22,9 @@ namespace exercise_1
 
         public Lane CreateCopy()
         {
-            Lane rl = (Lane)MemberwiseClone();
-            rl.TrafficLight = TrafficLight.CreateCopy();
-            return rl;
+            Lane lane = (Lane)MemberwiseClone();
+            lane.TrafficLight = TrafficLight.CreateCopy();
+            return lane;
         }
     }
 }

@@ -19,21 +19,14 @@ namespace Home_task_8
 
         public CrossRoad(float start, float end)
         {
-            try
-            {
-                InitializeTrafficLights();
-                InitializeRoads();
+            InitializeTrafficLights();
+            InitializeRoads();
 
-                SetDefaultDurations();
+            SetInitialtDurations();
 
-                stimulationStart = TimeSpan.FromSeconds(0);
-                stimulationEnd = TimeSpan.FromSeconds(6);
-                stimulationtime = stimulationEnd - stimulationStart;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Wrong input data");
-            }
+            stimulationStart = TimeSpan.FromSeconds(0);
+            stimulationEnd = TimeSpan.FromSeconds(6);
+            stimulationtime = stimulationEnd - stimulationStart;
         }
 
         private void InitializeTrafficLights()
@@ -53,7 +46,7 @@ namespace Home_task_8
             eastWest = new Road(new Lane(new TrafficLight()), new Lane(new TrafficLight()));
         }
 
-        private void SetDefaultDurations()
+        private void SetInitialtDurations()
         {
             Duration duration = new Duration(0.50f, 0.5f, 0.7f);
 
@@ -89,7 +82,7 @@ namespace Home_task_8
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Wrong input data");
+                throw new Exception();
             }
         }
 
@@ -116,10 +109,10 @@ namespace Home_task_8
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Wrong input data");
+                throw new Exception();
             }
         }
-        public void SetNorthenLightTime(float red, float yellow, float green)
+        public void SetNorthLightTime(float red, float yellow, float green)
         {
             Duration duration = new Duration(red, yellow, green);
             Lane[] rls = northSouth.GetLanes();
@@ -153,27 +146,27 @@ namespace Home_task_8
             Lane[] rls2 = eastWest.GetLanes();
 
             Console.WriteLine($"t={stopwatch.Elapsed.TotalSeconds:N0} с");
-            Console.WriteLine($"Світлофор  Пiвнiч-пiвдень  Пiвдень-пiвнiч    Схiд-захiд    Захiд-схiд\nКолiр: \t\t{rls[0].TrafficLight.CurrentColor}\t\t{rls[1].TrafficLight.CurrentColor}\t\t{rls2[0].TrafficLight.CurrentColor}\t\t{rls2[1].TrafficLight.CurrentColor}");
+            Console.WriteLine($"Свiтлофор  Пiвнiч-пiвдень  Пiвдень-пiвнiч    Схiд-захiд    Захiд-схiд\nКолiр: \t\t{rls[0].TrafficLight.CurrentColor}\t\t{rls[1].TrafficLight.CurrentColor}\t\t{rls2[0].TrafficLight.CurrentColor}\t\t{rls2[1].TrafficLight.CurrentColor}");
         }
 
         public void StartSimulation()
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            Lane[] rls = northSouth.GetLanes();
-            Lane[] rls2 = eastWest.GetLanes();
+            Lane[] firstLane = northSouth.GetLanes();
+            Lane[] secondLane = eastWest.GetLanes();
 
             while (stopwatch.Elapsed <= stimulationtime)
             {
                 SimulateCrossRoadWork(stopwatch);
-                SwitchTrafficLights(rls);
-                SwitchTrafficLights(rls2);
+                SwitchLights(firstLane);
+                SwitchLights(secondLane);
 
                 Console.WriteLine();
                 Thread.Sleep(1000);
             }
         }
 
-        private void SwitchTrafficLights(Lane[] lanes)
+        private void SwitchLights(Lane[] lanes)
         {
             foreach (var item in lanes)
             {

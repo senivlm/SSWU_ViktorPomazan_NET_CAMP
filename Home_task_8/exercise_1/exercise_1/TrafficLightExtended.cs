@@ -15,13 +15,13 @@ namespace exercise_1
         public TrafficLightExtended() : base()
         {
             _turnRegulationInterval = TimeSpan.FromSeconds(5);
-            TurnWorks += OnTurnWorks;
+            TurnWorks += OnWorks;
         }
 
         public TrafficLightExtended(float time) : base()
         {
             _turnRegulationInterval = TimeSpan.FromSeconds(time);
-            TurnWorks += OnTurnWorks;
+            TurnWorks += OnWorks;
         }
 
         public TrafficLightExtended DeepCopy(Duration d)
@@ -39,11 +39,11 @@ namespace exercise_1
 
             if (_stopwatch.Elapsed < _turnRegulationInterval)
             {
-                Task.Run(() => StartTurnRegulation());
+                Task.Run(() => StartRegulation());
             }
             else
             {
-                Task.Run(() => StopTurnRegulation());
+                Task.Run(() => StopRegulation());
                 PerformColorSwitch();
             }
         }
@@ -86,7 +86,7 @@ namespace exercise_1
             OnColorChanged(CurrentColor);
             Thread.Sleep(Durations.YellowDuration);
         }
-        public override void RunFor(float time)
+        public override void Run(float time)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -95,28 +95,28 @@ namespace exercise_1
                 SwitchColor();
                 if (stopwatch.Elapsed < _turnRegulationInterval)
                 {
-                    StartTurnRegulation();
+                    StartRegulation();
                 }
                 else
                 {
-                    StopTurnRegulation();
+                    StopRegulation();
                 }
             }
         }
 
-        public void StartTurnRegulation()
+        public void StartRegulation()
         {
             _turnRegulation = true;
-            OnTurnWorks(_turnRegulation);
+            OnWorks(_turnRegulation);
         }
 
-        public void StopTurnRegulation()
+        public void StopRegulation()
         {
             _turnRegulation = false;
-            OnTurnWorks(_turnRegulation);
+            OnWorks(_turnRegulation);
         }
 
-        protected virtual void OnTurnWorks(bool isWorking)
+        protected virtual void OnWorks(bool isWorking)
         {
             if (isWorking)
             {

@@ -59,7 +59,7 @@ namespace exercise_1
 
         public void SetName(string s) { Name = s; }
 
-        public virtual void RunFor(float time)
+        public virtual void Run(float time)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -86,12 +86,12 @@ namespace exercise_1
 
         public virtual void SwitchColor()
         {
-            CurrentColor = GetNextColor(CurrentColor);
+            CurrentColor = GetNextLight(CurrentColor);
             OnColorChanged(CurrentColor);
             Thread.Sleep((int)GetDuration(CurrentColor).TotalSeconds);
         }
 
-        private LightColor GetNextColor(LightColor currentColor)
+        private LightColor GetNextLight(LightColor currentColor)
         {
             switch (currentColor)
             {
