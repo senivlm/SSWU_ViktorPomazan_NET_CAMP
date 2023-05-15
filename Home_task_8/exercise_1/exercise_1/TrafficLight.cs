@@ -76,6 +76,11 @@ namespace exercise_1
 
         public void SetDuration(float red, float yellow, float green)
         {
+            if (red < 0 || yellow < 0 || green < 0)
+            {
+                throw new ArgumentException("Duration values cannot be negative.");
+            }
+
             Durations = new Duration
             {
                 RedDuration = TimeSpan.FromSeconds(red),

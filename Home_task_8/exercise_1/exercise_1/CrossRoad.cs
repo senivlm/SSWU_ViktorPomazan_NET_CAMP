@@ -1,11 +1,5 @@
 ﻿using exercise_1;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Home_task_8
 {
@@ -13,9 +7,9 @@ namespace Home_task_8
     {
         private Road northSouth;
         private Road eastWest;
-        private TimeSpan stimulationStart;
-        private TimeSpan stimulationEnd;
-        private TimeSpan stimulationtime;
+        private TimeSpan simulationStart;
+        private TimeSpan simulationEnd;
+        private TimeSpan simulationTime;
 
         public CrossRoad(float start, float end)
         {
@@ -23,9 +17,9 @@ namespace Home_task_8
             InitializeRoads();
             SetInitialtDurations();
 
-            stimulationStart = TimeSpan.FromSeconds(start);
-            stimulationEnd = TimeSpan.FromSeconds(end + 1);
-            stimulationtime = stimulationEnd - stimulationStart;
+            simulationStart = TimeSpan.FromSeconds(start);
+            simulationEnd = TimeSpan.FromSeconds(end + 1);
+            simulationTime = simulationEnd - simulationStart;
         }
 
         private void InitializeTrafficLights()
@@ -75,9 +69,9 @@ namespace Home_task_8
                 Lane westEastrl = new Lane(westEast.CreateCopy());
                 eastWest = new Road(westEastrl, eastWestrl);
 
-                this.stimulationStart = TimeSpan.FromSeconds(stimulationStart1);
-                this.stimulationEnd = TimeSpan.FromSeconds(stimulationEnd1 + 1);
-                this.stimulationtime = stimulationEnd - stimulationStart;
+                this.simulationStart = TimeSpan.FromSeconds(stimulationStart1);
+                this.simulationEnd = TimeSpan.FromSeconds(stimulationEnd1 + 1);
+                this.simulationTime = simulationEnd - simulationStart;
             }
             catch (Exception ex)
             {
@@ -90,9 +84,9 @@ namespace Home_task_8
             northSouth = northSouthroad.CreateCopy();
             eastWest = westEastRoad.CreateCopy();
 
-            stimulationStart = TimeSpan.FromSeconds(0);
-            stimulationEnd = TimeSpan.FromSeconds(6);
-            stimulationtime = stimulationEnd - stimulationStart;
+            simulationStart = TimeSpan.FromSeconds(0);
+            simulationEnd = TimeSpan.FromSeconds(6);
+            simulationTime = simulationEnd - simulationStart;
         }
 
         public CrossRoad(Road northSouthroad, Road westEastRoad, float stimulationStart1, float stimulationEnd1)
@@ -102,9 +96,9 @@ namespace Home_task_8
                 northSouth = northSouthroad.CreateCopy();
                 eastWest = westEastRoad.CreateCopy();
 
-                stimulationStart = TimeSpan.FromSeconds(stimulationStart1);
-                stimulationEnd = TimeSpan.FromSeconds(stimulationEnd1 + 1);
-                stimulationtime = stimulationEnd - stimulationStart;
+                simulationStart = TimeSpan.FromSeconds(stimulationStart1);
+                simulationEnd = TimeSpan.FromSeconds(stimulationEnd1 + 1);
+                simulationTime = simulationEnd - simulationStart;
             }
             catch (Exception ex)
             {
@@ -154,7 +148,7 @@ namespace Home_task_8
             Lane[] firstLane = northSouth.GetLanes();
             Lane[] secondLane = eastWest.GetLanes();
 
-            while (stopwatch.Elapsed <= stimulationtime)
+            while (stopwatch.Elapsed <= simulationTime)
             {
                 SimulateCrossRoadWork(stopwatch);
                 SwitchLights(firstLane);
