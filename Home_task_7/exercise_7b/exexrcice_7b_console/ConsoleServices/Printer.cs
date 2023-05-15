@@ -8,7 +8,7 @@ using exercise_7b.Interfaces;
 
 namespace exercise_7b
 {
-    public class Printer: IPrinter
+    public class Printer : IPrinter
     {
         private readonly TrafficLight _trafficLight;
 

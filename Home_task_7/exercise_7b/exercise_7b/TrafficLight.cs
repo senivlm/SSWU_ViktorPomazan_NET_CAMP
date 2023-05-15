@@ -6,6 +6,7 @@ namespace exercise_7b
     public class TrafficLight
     {
         private List<string> _directions;
+        private List<Road> _roads = new List<Road>();
         private int _timer;
         private int _currentTime = 0;
 
@@ -19,6 +20,10 @@ namespace exercise_7b
             get { return _currentTime; }
         }
 
+        public List<Road> Roads
+        {
+            get { return _roads; }
+        }
         public List<string> Directions
         {
             get { return _directions; }
@@ -30,9 +35,14 @@ namespace exercise_7b
             _directions = directions;
         }
 
-        public void UpdateTime(int t)
+        public void AddRoad(Road road)
         {
-            _timer = t;
+            _roads.Add(road);
+        }
+
+        public void UpdateTime(int timer)
+        {
+            _timer = timer;
         }
 
         public void TrafficLightOn(Action printMethod)
@@ -40,6 +50,35 @@ namespace exercise_7b
             printMethod();
             Thread.Sleep(_timer * 1000);
             _currentTime += _timer;
+        }
+    }
+
+    public class Road
+    {
+        public string Name { get; set; }
+        public List<Lane> Lanes { get; set; }
+
+        public Road(string name)
+        {
+            Name = name;
+            Lanes = new List<Lane>();
+        }
+
+        public void AddLane(Lane lane)
+        {
+            Lanes.Add(lane);
+        }
+    }
+
+    public class Lane
+    {
+        public string Name { get; set; }
+        public TrafficLight TrafficLight { get; set; }
+
+        public Lane(string name, TrafficLight trafficLight)
+        {
+            Name = name;
+            TrafficLight = trafficLight;
         }
     }
 }
