@@ -13,7 +13,7 @@ namespace exercise_4
         }
         private static void Child_EventOccurred(object sender, EventArgs e)
         {
-            Console.WriteLine("Подія сталася в дочірньому класі.");
+            Console.WriteLine("Подiя сталася в дочiрньому класi.");
         }
     }
 }

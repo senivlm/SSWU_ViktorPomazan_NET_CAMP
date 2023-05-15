@@ -21,11 +21,10 @@ namespace Home_task_8
         {
             InitializeTrafficLights();
             InitializeRoads();
-
             SetInitialtDurations();
 
-            stimulationStart = TimeSpan.FromSeconds(0);
-            stimulationEnd = TimeSpan.FromSeconds(6);
+            stimulationStart = TimeSpan.FromSeconds(start);
+            stimulationEnd = TimeSpan.FromSeconds(end + 1);
             stimulationtime = stimulationEnd - stimulationStart;
         }
 
