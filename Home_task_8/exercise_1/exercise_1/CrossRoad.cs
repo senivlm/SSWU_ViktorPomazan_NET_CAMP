@@ -146,7 +146,7 @@ namespace Home_task_8
             Lane[] rls2 = eastWest.GetLanes();
 
             Console.WriteLine($"t={stopwatch.Elapsed.TotalSeconds:N0} с");
-            Console.WriteLine($"Свiтлофор  Пiвнiч-пiвдень  Пiвдень-пiвнiч    Схiд-захiд    Захiд-схiд\nКолiр: \t\t{rls[0].TrafficLight.CurrentColor}\t\t{rls[1].TrafficLight.CurrentColor}\t\t{rls2[0].TrafficLight.CurrentColor}\t\t{rls2[1].TrafficLight.CurrentColor}");
+            Console.WriteLine($"Свiтлофор:    Пн-Пд            Пд-Пн            Сх-Зх           Зх-Сх\nКолiр: \t\t{rls[0].TrafficLight.CurrentColor}\t\t{rls[1].TrafficLight.CurrentColor}\t\t{rls2[0].TrafficLight.CurrentColor}\t\t{rls2[1].TrafficLight.CurrentColor}");
         }
 
         public void StartSimulation()

@@ -121,14 +121,14 @@ namespace exercise_1
             if (isWorking)
             {
                 if (Name != null)
-                    Console.Write(Name + "'s " + "Turn works.\t");
+                    Console.Write(Name + "'s " + "Traffic light works.\t");
                 else
                     Console.Write("Turn works");
             }
             else
             {
                 if (Name != null)
-                    Console.Write(Name + "'s " + "Turn doesn't work");
+                    Console.Write(Name + "'s " + "Traffic light stopped the work");
             }
         }
     }

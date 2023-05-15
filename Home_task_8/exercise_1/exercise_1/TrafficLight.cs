@@ -123,7 +123,7 @@ namespace exercise_1
 
         public void ColorChangedEvent(LightColor color)
         {
-            Console.WriteLine("Color changed to: " + color);
+            Console.WriteLine("Current color is " + color);
         }
 
         protected virtual void OnColorChanged(LightColor color)
