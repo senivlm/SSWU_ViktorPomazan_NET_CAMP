@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 namespace exercise_7b_console
 {
     public class Program
-    {
+    {// Не бачу відображення вікна проєктування. Не зрозуміле проєктування. Прохання залишитись  пояснити аспекти.
         static void Main(string[] args)
         {
             IReader reader = new Reader();
